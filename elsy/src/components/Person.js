@@ -7,7 +7,7 @@ class Person extends Component {
 
         <span class="material-icons">
           directions_walk
-</span>
+        </span>
       </div>
     );
   }
