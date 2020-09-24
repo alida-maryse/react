@@ -1,0 +1,14 @@
+.box:nth-child(even){
+    background-color: #CCC;
+}
+
+.box:nth-child(odd){
+    background-color:#AAA ;   
+}
+
+.box{
+    padding: 190px;
+    height: 10px;
+    text-align: center;
+}
+
