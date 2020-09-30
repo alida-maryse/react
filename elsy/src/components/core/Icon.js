@@ -5,7 +5,7 @@ class Icon extends Component {
     return (
       <div> 
 
-        <span class="material-icons"  style={{ fontSize: 100, color:this.props.name}}>
+        <span class="material-icons"  style={{ fontSize: 100, color:this.props.color}}>
             {this.props.name}
           
         </span>

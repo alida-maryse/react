@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Icon from './components/core/Icon'
 
 class Person extends Component {
   render() {
