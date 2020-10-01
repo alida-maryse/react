@@ -10,9 +10,9 @@ class Slider extends Component {
                 <RCSlider max={this.props.max}           // ajout module RCSlider ds la Div
                     min={this.props.min}
                     onChange={this.props.onChange}
-                    value={this.props.value} />
+                    value={this.props.value} >
 
-                <RCSlider/>    
+                </RCSlider>    
 
 
 

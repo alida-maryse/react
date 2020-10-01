@@ -7,16 +7,16 @@ class HeartRate extends Component {
     render() {
         return (
             <div className="box col-md-2 col-6" >
-                  
+
                 <Icon name="favorite" color="red"></Icon>
-                <p>{this.props.heart}BPM</p>             
+                <p>{this.props.heart}BPM</p>
 
-                <Slider max={this.props.max}           // ajout module RCSlider
-                    min={this.props.min}
-                    onChange={this.props.onChange}
-                    value={this.props.heart} />         
+                <Slider min={this.props.min}
+                    max={this.props.max}                 // ajout module RCSlider
+                    onChange={this.props.onChange} 
+                    value={this.props.heart}>
 
-                <Slider/>    
+                </Slider>
 
 
 
