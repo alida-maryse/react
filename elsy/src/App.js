@@ -5,6 +5,7 @@ import HeartRate from './HeartRate';
 import './css/bootstrap.min.css'
 import './css/style.css'
 import Temperature from './components/Temperature'
+import Water from './components/Water'
 
 const MIN_TEMPERATURE = -20
 const MAX_TEMPERATURE = 40
@@ -32,31 +33,54 @@ class App extends Component {
 
   }
 
-  onHeartChange(val) {
+  onHeartChange(val){
     this.setState({
       heart: val
 
     })
 
+  } 
+    
     onStepsChange(val) {
       this.setState({
         steps: val
 
       })
+    }
+      
       onTemperatureChange(val) {
         this.setState({
           temperature: val
 
         })
+      }
+      calculateWater() {
+        this.setState({
+          water: ''
 
-
+        })
       }
 
       render() {
         return (
 
           <div className="container-fluid">
-            <Person></Person>
+            <Water water= {this.props.water}></Water>
+
+            <Person min={MIN_STEPS}
+              max={MAX_STEPS}
+              onChange={this.onStepsChange}
+              heart={this.state.steps}>
+
+
+            </Person>
+            <Temperature min={MIN_TEMPERATURE}
+              max={MAX_TEMPERATURE}
+              onChange={this.onTemperatureChange}
+              heart={this.state.temperature}>
+
+            </Temperature>
+
             <HeartRate min={MIN_HEART}
               max={MAX_HEART}
               onChange={this.onHeartChange}
@@ -64,7 +88,7 @@ class App extends Component {
 
 
             </HeartRate>
-            <Temperature></Temperature>
+        
           </div>
 
         );
