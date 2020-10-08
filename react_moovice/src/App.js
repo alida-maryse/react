@@ -24,7 +24,7 @@ class App extends React.Component {
               <li><Link to="/battle/">Battle</Link></li>
               <li><Link to="/popular/">Popular</Link></li>
               <li><Link to="/popular-battle/">Popular-battle</Link></li>
-              <li><Link to="/my-list/">My-list</Link></li>
+              <li><Link to="/my-List/">My-List</Link></li>
             </ul>
           </nav>
           <Switch>
@@ -40,7 +40,7 @@ class App extends React.Component {
             <Route exact path="/popular-battle/" component= {PopularBattle}>
               <PopularBattle />
             </Route>
-            <Route exact path="/my-list/" component= {MyList}>
+            <Route exact path="/my-List/" component= {MyList}>
               <My-list />
             </Route>       
           </Switch>
