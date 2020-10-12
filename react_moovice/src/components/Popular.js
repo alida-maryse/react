@@ -19,6 +19,15 @@ class Popular extends React.Component {
         this.setState({
           movies: json.results,
 
+          const movies= json.results.map(elem) =>{
+            return {
+              title : elem.title
+              description : elem.overview
+              imgUrl : 'https://image.tmdb.org/t/p/w300/${elem.poster_path}
+            }
+          }
+          this.setState({movies})
+
         })    
   } 
 
@@ -27,28 +36,19 @@ class Popular extends React.Component {
       <div>
 
       <h1>Popular</h1>
-
-      {this.state.movies.map((movie) => {
-        return <Card data={movie}></Card>
+      
+      return {this.state.movies.map((movie) => { <Card data={movie}></Card>
         )}}
 
-     
     </div>
-
 
     )
   }
  
-
-
       );
   }   
 }   
-    
-  
-  
       
-  
 }
 
 export default Popular;
