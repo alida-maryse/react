@@ -1,54 +1,66 @@
-import React from 'react';
-import { render } from 'react-dom';
-
-class Popular extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-
-      movies: [],
+import React, { Component } from 'react';
+//import placeholder from './img/placeholder';
+import { API_KEY } from './Serviceurl/monurl';
+import Card from './Movie/Card'; // popular est le parent de Card
+​
+​
+​
+class Popular extends Component {
+​
+    constructor() {
+        super();
+​
+        this.state = {
+            movies: [],
+        };
     }
-    this.componentDidMount = this.componentDidMount.bind(this)
-  }
-  componentDidMount() {
-
-    fetch('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=<5f7b27b10525bbb17128770898960f83>')
-    .then(res => res.json())
-      .then(json => {
-        this.setState({
-          movies: json.results,
-
-          const movies= json.results.map(elem) =>{
-            return {
-              title : elem.title
-              description : elem.overview
-              imgUrl : 'https://image.tmdb.org/t/p/w300/${elem.poster_path}
-            }
-          }
-          this.setState({movies})
-
-        })    
-  } 
-
-  render () {
-    return (
-      <div>
-
-      <h1>Popular</h1>
-      
-      return {this.state.movies.map((movie) => { <Card data={movie}></Card>
-        )}}
-
-    </div>
-
-    )
-  }
- 
-      );
-  }   
-}   
-      
+​
+    componentDidMount() {
+        fetch(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`)
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+​
+                const img = require('./img/placeholder.png');
+                const movies = json.results.map((elem) => { //pour construire un array de chaque film contenant le titre la description et l'image;
+                    return {
+                        title: elem.title,
+                        description: elem.overview,
+                        imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : <img src={this.props.img} alt='CD' />
+​
+                    }
+                })
+​
+                this.setState({ movies }) // = movies : movies/ pour enregistrer ma var qui contient chaque film; 
+​
+            /*    this.setState({  // j'enregistre la valeur d'un attribut d'une state;
+                    movies: json.results
+                })
+            */})//.catch(err => console.error(err));
+​
+    }
+​
+​
+    render() {
+        return (
+​
+            <div className='row'>
+                {this.state.movies.map((elem, index) => {
+                    //console.log('Popular render map', elem)
+                    return (
+                        <div key={index} className='col-6'>
+                            <Card title={elem.title} description={elem.description} imgUrl={elem.imgUrl} />
+                        </div>
+                         
+                    )
+                })}
+            </div>
+        )
+    }
 }
-
+​
 export default Popular;
+Réduire
+
+
+
